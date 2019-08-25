@@ -1,0 +1,8 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.session_delete',
+    attr: {
+        method: 'DELETE',
+        action: url('session_delete', {'id': session.id})
+    },
+    back_to_list_path: 'session_index',
+} %}

@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ 'title.session_list'|trans({'%id%': session.id|default('')}) }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ 'title.session_list'|trans({'%id%': session.id|default('')}) }}</h1>
+    {% if session is defined and session|length %}
+        <dl class="dl-horizontal">
+            <dt>{{ 'label.id'|trans }}</dt>
+            <dd>{{ session.id }}</dd>
+            <dt>{{ 'label.created_at'|trans }}</dt>
+            <dd>{{ session.createdAt|date('d.m.Y') }}</dd>
+            <dt>{{ 'label.updated_at'|trans }}</dt>
+            <dd>{{ session.updatedAt|date('d.m.Y') }}</dd>
+            <dt>{{ 'label.owner'|trans }}</dt>
+            <dd>{{  session.user.username }}</dd>
+            <dt>{{ 'label.title'|trans }}</dt>
+            <dd>{{  session.title }}</dd>
+        </dl>
+    {% else %}
+        <p>
+            {{ 'message.item_not_found'|trans }}
+        </p>
+    {% endif %}
+{% endblock %}

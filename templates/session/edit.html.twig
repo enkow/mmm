@@ -1,0 +1,8 @@
+{% include 'default/_form.html.twig' with {
+    page_title: 'title.session_edit',
+    attr: {
+        method: 'PUT',
+        action: url('session_edit', {'id': session.id})
+    },
+    back_to_list_path: 'session_index',
+} %}
